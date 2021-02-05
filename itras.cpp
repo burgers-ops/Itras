@@ -1,4 +1,4 @@
-#include "image.h"
+#include "image.cpp"
 
 int main(int argc, char** argv) {
     Image test("saudi.jpg");
