@@ -5,6 +5,7 @@
 #include "stb_image.h"
 #include "stb_image_write.h"
 
+
 Image::Image(const char* filename){
     if(read(filename)) {
         printf("Read %s succesfully\n", filename);
@@ -62,3 +63,20 @@ ImageType Image::getFileType(const char* filename) {
     return PNG;
 
 }
+
+Image& Image::grayscale_avg() {
+	if(channels < 3) {
+		printf("Image %p has less than 3 channels, it is assumed to already be grayscale.", this);
+	}
+	else {
+		for(int i = 0; i < size; i+=channels) {
+			//(r+g+b)/3
+			int gray = (data[i] + data[i+1] + data[i+2])/3;
+			memset(data+i, gray, 3);
+		}
+	}
+	return *this;
+}
+/*Image& Image::grayscale_lum() {
+
+}*/

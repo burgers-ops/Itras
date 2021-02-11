@@ -20,4 +20,7 @@ struct Image {
 
     ImageType getFileType(const char* filename);
 
+    Image& grayscale_avg();
+    Image& grayscale_lum();
+
 };

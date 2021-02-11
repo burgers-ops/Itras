@@ -1,14 +1,11 @@
 #include "image.cpp"
 
 int main(int argc, char** argv) {
-    Image test("saudi.jpg");
-    test.write("new_saudi.png");
-    Image copy = test;
-    for (int i = 0; i < copy.w*copy.channels; ++i) {
-        copy.data[i] = 255;
-    }
-    copy.write("copy.png");
-    Image blank(100, 100, 3);
-    blank.write("blank.jpg");
+    Image test("enter.jpg");
+
+    Image gray_avg = test;
+    gray_avg.grayscale_avg();
+    gray_avg.write("grayavg.png");
+
     return 0;
 }
